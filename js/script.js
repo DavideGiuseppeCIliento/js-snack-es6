@@ -1,15 +1,3 @@
-// Snack 1
-// Creare un array di oggetti:
-// Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso.
-// Stampare a schermo la bici con peso minore.
-
-// Snack2
-// Creare un array di oggetti di squadre di calcio.
-// Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
-// Nome sarà l'unica proprietà da compilare, le altre saranno tutte settate a 0.
-// Generare numeri random al posto degli 0 nelle proprietà "punti" fatti e "falli subiti".
-// Infine, creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
-
 // SNACK 1
 
 // Creazione dell' Array di oggetti
@@ -44,4 +32,63 @@ for (const key in biciclette) {
   console.log(biciclette[key]);
 }
 
+// Stampa nomen
 alert(temp.nome);
+
+// SNACK 2
+
+// Creazione dell' Array di oggetti
+const squadre = [
+  {
+    nome: "Juventus",
+    punti: 0,
+    falli: 0,
+  },
+
+  {
+    nome: "Inter",
+    punti: 0,
+    falli: 0,
+  },
+
+  {
+    nome: "Milan",
+    punti: 0,
+    falli: 0,
+  },
+
+  {
+    nome: "Roma",
+    punti: 0,
+    falli: 0,
+  },
+];
+
+const statisticaFalli = [];
+
+// Generazione punti e falli
+
+for (const chiave in squadre) {
+  squadre[chiave].punti = generaPunti();
+  squadre[chiave].falli = generaFalli();
+}
+console.log(squadre[0]);
+
+// Generazione nuovo ARRAY con  NOME e FALLI
+for (const chiave in squadre) {
+  statisticaFalli.push({
+    nome: squadre[chiave].nome,
+    falli: squadre[chiave].falli,
+  });
+}
+console.log(statisticaFalli);
+
+//--------------------------------------------FUNZIONI
+// FUNZIONE GENERAZIONE PUNTI
+function generaPunti() {
+  return Math.floor(Math.random() * 100) + 1;
+}
+// FUNZIONE GENERAZIONE FALLI
+function generaFalli() {
+  return Math.floor(Math.random() * 100) + 1;
+}
